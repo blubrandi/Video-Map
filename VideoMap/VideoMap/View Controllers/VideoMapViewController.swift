@@ -10,6 +10,8 @@ import UIKit
 
 class VideoMapViewController: UIViewController {
 
+    @IBOutlet weak var videoMapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
