@@ -14,6 +14,7 @@
 		85E867BF23D0FD8100ED688D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E867BD23D0FD8100ED688D /* LaunchScreen.storyboard */; };
 		85E867C723D0FFD200ED688D /* VideoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E867C623D0FFD200ED688D /* VideoMapViewController.swift */; };
 		85E867C923D1009200ED688D /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E867C823D1009200ED688D /* VideoViewController.swift */; };
+		85E867CC23D1038700ED688D /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E867CB23D1038700ED688D /* CameraPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		85E867C023D0FD8200ED688D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85E867C623D0FFD200ED688D /* VideoMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMapViewController.swift; sourceTree = "<group>"; };
 		85E867C823D1009200ED688D /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		85E867CB23D1038700ED688D /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				85E867B223D0FD7E00ED688D /* AppDelegate.swift */,
 				85E867B423D0FD7E00ED688D /* SceneDelegate.swift */,
+				85E867CD23D1038C00ED688D /* Views */,
 				85E867B823D0FD7E00ED688D /* Main.storyboard */,
 				85E867BB23D0FD8100ED688D /* Assets.xcassets */,
 				85E867BD23D0FD8100ED688D /* LaunchScreen.storyboard */,
@@ -76,6 +79,14 @@
 				85E867C823D1009200ED688D /* VideoViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		85E867CD23D1038C00ED688D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				85E867CB23D1038700ED688D /* CameraPreview.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E867CC23D1038700ED688D /* CameraPreview.swift in Sources */,
 				85E867B323D0FD7E00ED688D /* AppDelegate.swift in Sources */,
 				85E867B523D0FD7E00ED688D /* SceneDelegate.swift in Sources */,
 				85E867C923D1009200ED688D /* VideoViewController.swift in Sources */,
