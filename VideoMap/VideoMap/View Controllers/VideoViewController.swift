@@ -82,56 +82,53 @@ class VideoViewController: UIViewController {
             captureSession.stopRunning()
         }
         
-        func setupCamera() {
-            let camera = bestCamera()
-            
-            let captureSession = AVCaptureSession()
-            captureSession.beginConfiguration()
-            
-            //make changes inside the devices connected
-            guard let cameraInput = try? AVCaptureDeviceInput(device: camera) else {
-                fatalError("Cannot create camera input")
+          func setupCamera() {
+                let camera = bestCamera()
+                
+                //make changes inside the devices connected
+                guard let cameraInput = try? AVCaptureDeviceInput(device: camera) else {
+                    fatalError("Cannot create camera input")
+                }
+                
+                guard captureSession.canAddInput(cameraInput) else {
+                    fatalError("Cannot add camera input to session")
+                }
+                
+                captureSession.addInput(cameraInput)
+                
+                if captureSession.canSetSessionPreset(.hd1920x1080) {
+        //            captureSession.setSessionPreset(.hd1920x1080)
+                    captureSession.sessionPreset = .hd1920x1080
+                }
+                
+                //start stream
+                
+                
+                //Add inputs
+                
+                //Video input
+                guard captureSession.canAddOutput(fileOutput) else {
+                    fatalError("Can't setup the file output for the movie")
+                }
+                
+                captureSession.addOutput(fileOutput)
+                
+                //Audio input
+                
+                let microphone = bestAudio()
+                guard let audioInput = try? AVCaptureDeviceInput(device: microphone) else {
+                    fatalError("Can't create input from microphone")
+                }
+                guard captureSession.canAddInput(audioInput) else {
+                    fatalError("Can't add audio input")
+                }
+                captureSession.addInput(audioInput)
+                
+                //Video output (movie)
+                
+                captureSession.commitConfiguration()
+                camerPreview.session = captureSession
             }
-            
-            guard captureSession.canAddInput(cameraInput) else {
-                fatalError("Cannot add camera input to session")
-            }
-            
-            captureSession.addInput(cameraInput)
-            
-            if captureSession.canSetSessionPreset(.hd1920x1080) {
-    //            captureSession.setSessionPreset(.hd1920x1080)
-                captureSession.sessionPreset = .hd1920x1080
-            }
-            
-            //start stream
-            
-            
-            //Add inputs
-            
-            //Video input
-            guard captureSession.canAddOutput(fileOutput) else {
-                fatalError("Can't setup the file output for the movie")
-            }
-            
-            captureSession.addOutput(fileOutput)
-            
-            //Audio input
-            
-            let microphone = bestAudio()
-            guard let audioInput = try? AVCaptureDeviceInput(device: microphone) else {
-                fatalError("Can't create input from microphone")
-            }
-            guard captureSession.canAddInput(audioInput) else {
-                fatalError("Can't add audio input")
-            }
-            captureSession.addInput(audioInput)
-            
-            //Video output (movie)
-            
-            captureSession.commitConfiguration()
-            camerPreview.session = captureSession
-        }
         
         private func bestAudio() -> AVCaptureDevice {
             if let device = AVCaptureDevice.default(for: .audio) {

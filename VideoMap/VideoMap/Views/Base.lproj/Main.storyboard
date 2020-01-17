@@ -47,12 +47,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3L-wg-eWa">
+                                <rect key="frame" x="20" y="108" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="j9d-Gn-waO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrg-Ed-0pD">
+                                <rect key="frame" x="158" y="433" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Location?">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iL7-5u-dRt" customClass="CameraPreview" customModule="VideoMap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="678"/>
+                                <rect key="frame" x="0.0" y="199" width="414" height="528"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4d-TG-s1b">
-                                        <rect key="frame" x="183" y="607" width="49" height="30"/>
+                                        <rect key="frame" x="129" y="424" width="157" height="68"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Record">
                                             <color key="titleColor" white="0.94348334369999998" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,21 +79,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3L-wg-eWa">
-                                <rect key="frame" x="20" y="710" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrg-Ed-0pD">
-                                <rect key="frame" x="293" y="752" width="98" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Location?">
-                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qb3-Is-sYk" firstAttribute="trailing" secondItem="m3L-wg-eWa" secondAttribute="trailing" constant="20" id="7o9-bK-BTq"/>
+                            <constraint firstItem="m3L-wg-eWa" firstAttribute="leading" secondItem="qb3-Is-sYk" secondAttribute="leading" constant="20" id="LKq-XL-48J"/>
+                            <constraint firstItem="m3L-wg-eWa" firstAttribute="top" secondItem="qb3-Is-sYk" secondAttribute="top" constant="20" id="ZH6-6C-K7T"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qb3-Is-sYk"/>
                     </view>
                     <navigationItem key="navigationItem" id="xYL-sr-Flf">
@@ -93,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hp-ta-C4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2059" y="31"/>
+            <point key="canvasLocation" x="2057.971014492754" y="30.803571428571427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tfQ-av-1QY">
