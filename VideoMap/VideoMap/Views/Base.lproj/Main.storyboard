@@ -26,7 +26,8 @@
                     <navigationItem key="navigationItem" id="2dL-ui-tWF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YEV-oD-A7J">
                             <connections>
-                                <segue destination="39t-yx-otW" kind="show" id="aDV-80-Kz8"/>
+                                <action selector="addVideoTapped:" destination="fTi-xr-zaF" id="dCm-4C-8v0"/>
+                                <segue destination="39t-yx-otW" kind="show" identifier="ShowCamera" id="Z4P-PD-m04"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -36,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fU-4W-5oh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653.62318840579712" y="33.482142857142854"/>
+            <point key="canvasLocation" x="539" y="33"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="8K3-1N-mgr">
@@ -46,7 +47,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iL7-5u-dRt">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iL7-5u-dRt" customClass="CameraPreview" customModule="VideoMap" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="678"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -56,6 +57,9 @@
                                         <state key="normal" title="Record">
                                             <color key="titleColor" white="0.94348334369999998" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="recordTapped:" destination="39t-yx-otW" eventType="touchUpInside" id="jsR-e1-TMM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,7 +85,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="cVt-ws-DdF"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="cameraPreviewView" destination="iL7-5u-dRt" id="dNH-B6-dcB"/>
+                        <outlet property="camerPreview" destination="iL7-5u-dRt" id="0yT-Up-jDa"/>
                         <outlet property="recordButton" destination="f4d-TG-s1b" id="RXv-ow-muk"/>
                         <outlet property="saveLocationButton" destination="Rrg-Ed-0pD" id="ylS-GF-HYO"/>
                         <outlet property="titleTextField" destination="m3L-wg-eWa" id="8m9-D5-QiW"/>
@@ -89,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hp-ta-C4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="33"/>
+            <point key="canvasLocation" x="2059" y="31"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tfQ-av-1QY">

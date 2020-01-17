@@ -15,7 +15,7 @@ class VideoViewController: UIViewController {
     lazy private var fileOutput = AVCaptureMovieFileOutput()
     var player: AVPlayer?
     
-    @IBOutlet weak var cameraPreviewView: CameraPreviewView!
+    @IBOutlet weak var camerPreview: CameraPreview!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var saveLocationButton: UIButton!
@@ -23,9 +23,11 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
             super.viewDidLoad()
             // Resize camera preview to fill the entire screen
-            cameraPreviewView.videoPlayerView.videoGravity = .resizeAspectFill
+
+            camerPreview.videoPlayerView.videoGravity = .resizeAspectFill
             setupCamera()
-            
+
+        
             // Add tap gesture to replay video (repeat loop)
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(tapGesture:)))
             view.addGestureRecognizer(tapGesture)
@@ -37,11 +39,17 @@ class VideoViewController: UIViewController {
             }
         }
 
-
-        @IBAction func recordButtonPressed(_ sender: Any) {
-            toggleRecording()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        captureSession.startRunning()
+        print("We got to view will appear")
+    }
+    @IBAction func recordTapped(_ sender: Any) {
+        toggleRecording()
+    }
+    
+
         func playRecording() {
             if let player = player {
                 player.seek(to: CMTime.zero)
@@ -66,7 +74,6 @@ class VideoViewController: UIViewController {
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
             
-            captureSession.startRunning()
         }
         
         override func viewDidDisappear(_ animated: Bool) {
@@ -77,6 +84,9 @@ class VideoViewController: UIViewController {
         
         func setupCamera() {
             let camera = bestCamera()
+            
+            let captureSession = AVCaptureSession()
+            captureSession.beginConfiguration()
             
             //make changes inside the devices connected
             guard let cameraInput = try? AVCaptureDeviceInput(device: camera) else {
@@ -120,7 +130,7 @@ class VideoViewController: UIViewController {
             //Video output (movie)
             
             captureSession.commitConfiguration()
-            cameraPreviewView.session = captureSession
+            camerPreview.session = captureSession
         }
         
         private func bestAudio() -> AVCaptureDevice {
